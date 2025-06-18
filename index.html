@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" /> <!-- Nastavení kódování na UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsivní zobrazení na mobilu -->
-  <title>Rainbow Six CZ</title> <!-- Titulek stránky -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rainbow Six CZ</title>
   <style>
     body {
       margin: 0;
@@ -32,13 +32,20 @@
       color: #fff;
       text-decoration: none;
       position: relative;
+      display: flex;
+      align-items: center;
     }
 
     nav a:hover::after {
-      content: '\25B6';
+      content: ' ▶';
       color: #fdd835;
-      position: absolute;
-      right: -1em;
+      margin-left: 0.3em;
+    }
+
+    .nav-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 6px;
     }
 
     main {
@@ -61,6 +68,7 @@
       width: 80px;
       height: auto;
       cursor: pointer;
+      z-index: 99;
     }
 
     .ela-bubble {
@@ -73,6 +81,7 @@
       max-width: 200px;
       border: 2px solid #57e389;
       display: none;
+      z-index: 99;
     }
 
     @media (max-width: 768px) {
@@ -93,39 +102,46 @@
         max-width: 180px;
         font-size: 0.9em;
       }
+
+      main {
+        padding: 1em;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Hlavička -->
   <header>
     <h1>Rainbow Six CZ</h1>
     <p>Mapy zabanovány. Operátoři taky. Agent vybrán. Zbraň nabitá. Už jen čekám na deploy…</p>
   </header>
 
+  <!-- Navigace -->
   <nav>
-    <a href="novinky.html">📰 Novinky</a>
-    <a href="tipy.html">🎯 Tipy a taktiky</a>
-    <a href="clutch.html">🎮 Clutch & Funny</a>
-    <a href="glitche.html">🧠 Glitche</a>
-    <a href="chat.html">💬 Komunita</a>
-    <a href="info.html">📘 O webu</a>
-    <a href="login.html">🔐 Přihlášení</a>
+    <a href="novinky.html"><img src="img/nav-ash.png" class="nav-icon" alt="Ash"> Novinky</a>
+    <a href="tipy.html"><img src="img/nav-thatcher.png" class="nav-icon" alt="Thatcher"> Tipy a taktiky</a>
+    <a href="clutch.html"><img src="img/nav-tachanka.png" class="nav-icon" alt="Tachanka"> Clutch & Funny</a>
+    <a href="glitche.html"><img src="img/nav-mozzie.png" class="nav-icon" alt="Mozzie"> Glitche</a>
+    <a href="chat.html"><img src="img/nav-caveira.png" class="nav-icon" alt="Caveira"> Komunita</a>
+    <a href="info.html"><img src="img/nav-doc.png" class="nav-icon" alt="Doc"> O webu</a>
+    <a href="login.html"><img src="img/nav-ela.png" class="nav-icon" alt="Ela"> Přihlášení</a>
   </nav>
 
+  <!-- Hlavní obsah -->
   <main>
     <h2>Vítej na hlavní stránce!</h2>
     <p>Vyber si záložku výše pro konkrétní sekci. Každá se otevře samostatně, přehledně a stylově!</p>
 
-    <!-- Sekce s informacemi o autorovi -->
+    <!-- Sekce s informacemi o tobě -->
     <section>
       <h3>Tento web vytvořil:</h3>
       <p><strong>Martin Bělohradský</strong><br>Nick ve hře: <strong>ImNot.Cheeky</strong></p>
       <p><em>O mně:</em> Jsem tvůrce této české fanouškovské stránky pro komunitu hráčů Rainbow Six Siege. Mám rád většinu stylů humoru – včetně Gen Z meme kultury – i když už spíš patřím mezi boomer generaci. Přizpůsobím se skoro čemukoli, pokud jde o zábavu a komunitního ducha. Miluju silnou komunitu založenou na respektu a vzájemné podpoře. Pokud si mě chceš přidat v R6, najdeš mě pod nickem <strong>ImNot.Cheeky</strong> 😎<br>Web je zatím ve vývoji. Pokud narazíš na chybu nebo máš nápad na vylepšení, klidně mě kontaktuj na e-mail: <em>(doplníš)</em></p>
-      <!-- Místo pro fotku autora – nahraj např. jako img/martin-profile.jpg -->
-      <img src="https://i.imgur.com/WRCkuXl.jpeg" alt="Martin Bělohradský" class="profile-photo">
+      <img src="img/martin-profile.jpg" alt="Martin Bělohradský" class="profile-photo">
     </section>
   </main>
 
+  <!-- Ela v rohu -->
   <img src="https://i.imgur.com/XJZyCPd.png" alt="Ela" class="ela" id="ela">
   <div class="ela-bubble" id="ela-bubble">Zíráš? Nepotřebuješ náhodou šok?</div>
 
@@ -133,6 +149,7 @@
     const ela = document.getElementById('ela');
     const bubble = document.getElementById('ela-bubble');
 
+    // Zobraz/skrýj bublinu po kliknutí na Elu
     ela.addEventListener('click', () => {
       bubble.style.display = bubble.style.display === 'block' ? 'none' : 'block';
     });
