@@ -41,6 +41,19 @@
       right: -1em;
     }
 
+    main {
+      text-align: center;
+      padding: 2em;
+    }
+
+    .profile-photo {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid #fdd835;
+      margin-top: 1em;
+    }
+
     .ela {
       position: fixed;
       bottom: 10px;
@@ -102,6 +115,15 @@
   <main>
     <h2>Vítej na hlavní stránce!</h2>
     <p>Vyber si záložku výše pro konkrétní sekci. Každá se otevře samostatně, přehledně a stylově!</p>
+
+    <!-- Sekce s informacemi o autorovi -->
+    <section>
+      <h3>Tento web vytvořil:</h3>
+      <p><strong>Martin Bělohradský</strong><br>Nick ve hře: <strong>ImNot.Cheeky</strong></p>
+      <p><em>O mně:</em> coming soon...</p>
+      <!-- Místo pro fotku autora – nahraj např. jako img/martin-profile.jpg -->
+      <img src="img/martin-profile.jpg" alt="Martin Bělohradský" class="profile-photo">
+    </section>
   </main>
 
   <img src="https://i.imgur.com/XJZyCPd.png" alt="Ela" class="ela" id="ela">
@@ -117,4 +139,3 @@
   </script>
 </body>
 </html>
-
