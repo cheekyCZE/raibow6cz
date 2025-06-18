@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rainbow Six CZ</title>
+  <meta charset="UTF-8" /> <!-- Nastavení kódování na UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsivní zobrazení na mobilu -->
+  <title>Rainbow Six CZ</title> <!-- Titulek stránky -->
   <style>
+    /* Základní stylování pro celé tělo stránky */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #0e0e0e;
       color: #ffffff;
     }
+
+    /* Hlavička stránky */
     header {
       background-color: #1a1a1a;
       padding: 1em;
       text-align: center;
       border-bottom: 2px solid #444;
     }
+
+    /* Navigační menu */
     nav {
       display: flex;
+      flex-wrap: wrap; /* Umožní přelomení menu na menších obrazovkách */
       justify-content: center;
       background-color: #121212;
       gap: 1em;
       padding: 0.5em;
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
       position: relative;
     }
+
+    /* Styl pro hover efekt s šipkou */
     nav a:hover::after {
-      content: '\25B6';
+      content: '\25B6'; /* Unicode znak pro šipku vpravo */
       color: #fdd835;
       position: absolute;
       right: -1em;
     }
+
+    /* Hlavní obsah stránky */
     main {
       padding: 2em;
     }
+
+    /* Styl pro obrázek Ely v rohu */
     .ela {
       position: fixed;
       bottom: 10px;
@@ -46,6 +59,8 @@
       height: auto;
       cursor: pointer;
     }
+
+    /* Bublina s hláškou Ely */
     .ela-bubble {
       position: fixed;
       bottom: 100px;
@@ -55,16 +70,43 @@
       border-radius: 10px;
       max-width: 200px;
       border: 2px solid #57e389;
-      display: none;
+      display: none; /* Ve výchozím stavu skryto */
+    }
+
+    /* Responsivita pro menší zařízení */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .ela {
+        width: 60px;
+        bottom: 5px;
+        right: 5px;
+      }
+
+      .ela-bubble {
+        bottom: 70px;
+        right: 70px;
+        max-width: 180px;
+        font-size: 0.9em;
+      }
+
+      main {
+        padding: 1em;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Hlavička webu -->
   <header>
     <h1>Rainbow Six CZ</h1>
     <p>Mapy zabanovány. Operátoři taky. Agent vybrán. Zbraň nabitá. Už jen čekám na deploy…</p>
   </header>
 
+  <!-- Navigační menu s odkazy na sekce -->
   <nav>
     <a href="#novinky">📰 Novinky</a>
     <a href="#tipy">🎯 Tipy a taktiky</a>
@@ -75,44 +117,54 @@
     <a href="#login">🔐 Přihlášení</a>
   </nav>
 
+  <!-- Hlavní obsah rozdělený do sekcí -->
   <main>
     <section id="novinky">
       <h2>Patch Notes: Rainbow Six X (Y9S2)</h2>
       <p>Aktualizace přináší nového operátora, změny na mapě Consulate a úpravy gadgetů. (Podrobněji v plné verzi.)</p>
     </section>
+
     <section id="tipy">
       <h2>Tipy a taktiky</h2>
       <p>Tip: Pokud jsi poslední naživu a máš Ela granát, neházej ho, když jsi nervózní. Sebestun = nejvíc český clutch 😅</p>
     </section>
+
     <section id="clutch">
       <h2>Clutch & Funny</h2>
       <p>Zde se budou sdílet nejlepší momenty komunity – od one tapů po smrtící omyly. Otevřeme brzy pro upload.</p>
     </section>
+
     <section id="glitche">
       <h2>Glitche</h2>
       <p>Známé: propadání textur v mapě Clubhouse. Neznámé? Tvůj spoluhráč co zmizel s diffuzorem…</p>
     </section>
+
     <section id="chat">
       <h2>Komunitní chat</h2>
       <p>Brzy spustíme online chatovací prostor. Přihlášení bude nutné pro psaní.</p>
     </section>
+
     <section id="info">
       <h2>O webu</h2>
       <p>Fan stránka pro CZ/SK komunitu hráčů Rainbow Six. Tvořeno s láskou, výbušninami a Elou v rohu.</p>
     </section>
+
     <section id="login">
       <h2>Přihlášení</h2>
       <p>Bez přihlášení nemůžeš nahrávat videa, chatovat ani přidávat glitche. Přihlas se a zapoj se do akce!</p>
     </section>
   </main>
 
+  <!-- Ela jako interaktivní obrázek v rohu -->
   <img src="https://i.imgur.com/XJZyCPd.png" alt="Ela" class="ela" id="ela">
   <div class="ela-bubble" id="ela-bubble">Zíráš? Nepotřebuješ náhodou šok?</div>
 
+  <!-- JavaScript pro zobrazování/skrývání hlášky po kliknutí na Elu -->
   <script>
-    const ela = document.getElementById('ela');
-    const bubble = document.getElementById('ela-bubble');
+    const ela = document.getElementById('ela'); // Odkaz na obrázek Ely
+    const bubble = document.getElementById('ela-bubble'); // Odkaz na bublinu s hláškou
 
+    // Přepínání zobrazení bubliny po kliknutí na Elu
     ela.addEventListener('click', () => {
       bubble.style.display = bubble.style.display === 'block' ? 'none' : 'block';
     });
