@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rainbow Six CZ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #ffffff;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 1em;
+      text-align: center;
+      border-bottom: 2px solid #444;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #121212;
+      gap: 1em;
+      padding: 0.5em;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+    }
+    nav a:hover::after {
+      content: '\25B6';
+      color: #fdd835;
+      position: absolute;
+      right: -1em;
+    }
+    main {
+      padding: 2em;
+    }
+    .ela {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 80px;
+      height: auto;
+      cursor: pointer;
+    }
+    .ela-bubble {
+      position: fixed;
+      bottom: 100px;
+      right: 90px;
+      background-color: #222;
+      padding: 1em;
+      border-radius: 10px;
+      max-width: 200px;
+      border: 2px solid #57e389;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rainbow Six CZ</h1>
+    <p>Mapy zabanovány. Operátoři taky. Agent vybrán. Zbraň nabitá. Už jen čekám na deploy…</p>
+  </header>
+
+  <nav>
+    <a href="#novinky">📰 Novinky</a>
+    <a href="#tipy">🎯 Tipy a taktiky</a>
+    <a href="#clutch">🎮 Clutch & Funny</a>
+    <a href="#glitche">🧠 Glitche</a>
+    <a href="#chat">💬 Komunita</a>
+    <a href="#info">📘 O webu</a>
+    <a href="#login">🔐 Přihlášení</a>
+  </nav>
+
+  <main>
+    <section id="novinky">
+      <h2>Patch Notes: Rainbow Six X (Y9S2)</h2>
+      <p>Aktualizace přináší nového operátora, změny na mapě Consulate a úpravy gadgetů. (Podrobněji v plné verzi.)</p>
+    </section>
+    <section id="tipy">
+      <h2>Tipy a taktiky</h2>
+      <p>Tip: Pokud jsi poslední naživu a máš Ela granát, neházej ho, když jsi nervózní. Sebestun = nejvíc český clutch 😅</p>
+    </section>
+    <section id="clutch">
+      <h2>Clutch & Funny</h2>
+      <p>Zde se budou sdílet nejlepší momenty komunity – od one tapů po smrtící omyly. Otevřeme brzy pro upload.</p>
+    </section>
+    <section id="glitche">
+      <h2>Glitche</h2>
+      <p>Známé: propadání textur v mapě Clubhouse. Neznámé? Tvůj spoluhráč co zmizel s diffuzorem…</p>
+    </section>
+    <section id="chat">
+      <h2>Komunitní chat</h2>
+      <p>Brzy spustíme online chatovací prostor. Přihlášení bude nutné pro psaní.</p>
+    </section>
+    <section id="info">
+      <h2>O webu</h2>
+      <p>Fan stránka pro CZ/SK komunitu hráčů Rainbow Six. Tvořeno s láskou, výbušninami a Elou v rohu.</p>
+    </section>
+    <section id="login">
+      <h2>Přihlášení</h2>
+      <p>Bez přihlášení nemůžeš nahrávat videa, chatovat ani přidávat glitche. Přihlas se a zapoj se do akce!</p>
+    </section>
+  </main>
+
+  <img src="https://i.imgur.com/XJZyCPd.png" alt="Ela" class="ela" id="ela">
+  <div class="ela-bubble" id="ela-bubble">Zíráš? Nepotřebuješ náhodou šok?</div>
+
+  <script>
+    const ela = document.getElementById('ela');
+    const bubble = document.getElementById('ela-bubble');
+
+    ela.addEventListener('click', () => {
+      bubble.style.display = bubble.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
+</body>
+</html>
